@@ -252,7 +252,7 @@ RCT_EXPORT_MODULE()
 {
     UIApplicationState state = [UIApplication sharedApplication].applicationState;
 
-    if ([RNNotificationsBridgeQueue sharedInstance].jsIsReady == YES) {
+    //if ([RNNotificationsBridgeQueue sharedInstance].jsIsReady == YES) {
         // JS thread is ready, push the notification to the bridge
 
         if (state == UIApplicationStateActive) {
@@ -265,10 +265,10 @@ RCT_EXPORT_MODULE()
             // Notification received background
             [self didReceiveNotificationOnBackgroundState:notification];
         }
-    } else {
-        // JS thread is not ready - store it in the native notifications queue
-        [[RNNotificationsBridgeQueue sharedInstance] postNotification:notification];
-    }
+    //} else {
+    //    // JS thread is not ready - store it in the native notifications queue
+    //    [[RNNotificationsBridgeQueue sharedInstance] postNotification:notification];
+    //}
 }
 
 + (void)didReceiveLocalNotification:(UILocalNotification *)notification
